@@ -11,11 +11,11 @@ def binary_search(sorted_list, l, r, el):
         return -1
 
 
-sorted_list = [1, 2, 3, 5, 7, 9, 11, 13, 16]
-el = 7
-result = binary_search(sorted_list, 0, len(sorted_list) - 1, el)
-
-if result != -1:
-    print(f"Element is present at index {result}")
-else:
-    print("Element is not present in array")
+# sorted_list = [1, 2, 3, 5, 7, 9, 11, 13, 16]
+# el = 7
+# result = binary_search(sorted_list, 0, len(sorted_list) - 1, el)
+#
+# if result != -1:
+#     print(f"Element is present at index {result}")
+# else:
+#     print("Element is not present in array")

@@ -8,4 +8,4 @@ def linear_search(lst, el):
 
 lst = [3, 8, 30, 5]
 el = 7
-print(linear_search(lst, el))
+# print(linear_search(lst, el))
