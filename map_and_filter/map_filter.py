@@ -15,6 +15,10 @@ def is_numeric(str):
     return str.isnumeric()
 
 
+def is_small(number):
+    return number < 8000
+
+
 def custom_filter(func, iter_obj):
     result = []
     for obj in iter_obj:
@@ -23,10 +27,18 @@ def custom_filter(func, iter_obj):
     return result
 
 
+def custom_map(func, iter_obj):
+    result = []
+    for obj in iter_obj:
+        result.append(func(obj))
+    return result
+
+
 word = 'I love Svarto 2023'
-numbers_arr = [-10, 2, 5, 9, 3, -5]
+numbers_arr = [-10, 2, 5, 9, 3, -5, 8000]
 print(list(custom_filter(is_negative, numbers_arr)))
 print(list(custom_filter(is_odd, numbers_arr)))
 print(list(custom_filter(is_vowel, word)))
 print(list(custom_filter(is_numeric, word)))
+print(list(custom_map(lambda n: n + 2000, custom_filter(is_small, numbers_arr))))
 
