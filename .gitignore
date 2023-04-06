@@ -2,4 +2,4 @@
 .log
 
 # Folders
-__pycache__
+__pycache__/
