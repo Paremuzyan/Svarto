@@ -6,6 +6,7 @@ def linear_search(lst, el):
             return f"{el} not found! in {lst}"
 
 
-lst = [3, 8, 30, 5]
-el = 7
-# print(linear_search(lst, el))
+if __name__ == "__main__":
+    lst = [3, 8, 30, 5]
+    el = 7
+    # print(linear_search(lst, el))

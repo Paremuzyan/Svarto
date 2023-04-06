@@ -32,5 +32,6 @@ def mergeSort(myList):
     return myList
 
 
-myList = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-print(mergeSort(myList))
+if __name__ == "__main__":
+    myList = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+    print(mergeSort(myList))

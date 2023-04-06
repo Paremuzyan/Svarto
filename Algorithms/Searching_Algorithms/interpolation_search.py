@@ -13,9 +13,10 @@ def interpolation_search(arr, lo, hi, x):
     return -1
 
 
-arr = [10, 12, 13, 16, 18, 19, 20,
-       21, 22, 23, 24, 33, 35, 42, 47]
-n = len(arr)
-x = 18
-index = interpolation_search(arr, 0, n - 1, x)
-print(index)
+if __name__ == "__main__":
+    arr = [10, 12, 13, 16, 18, 19, 20,
+           21, 22, 23, 24, 33, 35, 42, 47]
+    n = len(arr)
+    x = 18
+    index = interpolation_search(arr, 0, n - 1, x)
+    print(index)

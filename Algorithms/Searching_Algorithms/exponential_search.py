@@ -10,11 +10,12 @@ def exponential_search(sorted_array, x):
     return binary_search(sorted_array, bound // 2, min(bound, len(sorted_array) - 1), x)
 
 
-sorted_list = [1, 2, 3, 5, 7, 9, 11, 13, 16]
-el = 7789
-result = exponential_search(sorted_list, el)
+if __name__ == "__main__":
+    sorted_list = [1, 2, 3, 5, 7, 9, 11, 13, 16]
+    el = 7789
+    result = exponential_search(sorted_list, el)
 
-if result != -1:
-    print(f"Element is present at index {result}")
-else:
-    print("Element is not present in array")
+    if result != -1:
+        print(f"Element is present at index {result}")
+    else:
+        print("Element is not present in array")

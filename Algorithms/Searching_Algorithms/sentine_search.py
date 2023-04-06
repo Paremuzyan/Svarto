@@ -11,8 +11,9 @@ def sentine_search(lst, n, el):
         return f"{el} not found!"
 
 
-lst = [5, 8, 78, 6, 9, 56, 3456, 987, 567, 9876, 234, 9876, 64]
-n = len(lst)
-el = 10
+if __name__ == "__main__":
+    lst = [5, 8, 78, 6, 9, 56, 3456, 987, 567, 9876, 234, 9876, 64]
+    n = len(lst)
+    el = 10
 
-print(sentine_search(lst, n, el))
+    print(sentine_search(lst, n, el))

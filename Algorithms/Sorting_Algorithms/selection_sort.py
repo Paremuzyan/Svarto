@@ -8,5 +8,6 @@ def selection_sort(unsorted_list):
     return unsorted_list
 
 
-unsorted_list = [9, 7, 2, 789]
-print(selection_sort(unsorted_list))
+if __name__ == "__main__":
+    unsorted_list = [9, 7, 2, 789]
+    print(selection_sort(unsorted_list))
