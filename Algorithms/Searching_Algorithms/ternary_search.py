@@ -16,6 +16,6 @@ def ternary_search(start, end, key, arr):
         return -1
 
 
-
-lst = [1, 2, 3, 5, 7, 9, 11, 13, 16]
-print(ternary_search(0, len(lst) -1, 345678, lst))
+if __name__ == "__main__":
+    lst = [1, 2, 3, 5, 7, 9, 11, 13, 16]
+    print(ternary_search(0, len(lst) -1, 345678, lst))

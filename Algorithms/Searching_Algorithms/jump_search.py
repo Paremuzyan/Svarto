@@ -18,5 +18,6 @@ def jump_search(sorted_arr, el):
             return -1
 
 
-arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-print(jump_search(arr, 3))
+if __name__ == "__main__":
+    arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    print(jump_search(arr, 3))
