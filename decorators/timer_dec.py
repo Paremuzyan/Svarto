@@ -1,10 +1,14 @@
 import time
+from Svarto.algorithms.searching_algorithms.binary_search import binary_search
 
 
 def timer(f):
-    def execution_time():
+    def execution_time(*args, **kwargs):
         start = time.time()
-        f()
+        if args:
+            f(*args)
+        else:
+            f(**kwargs)
         end = time.time()
         print(f"Execution time for {f.__name__} function is {end - start} seconds")
     return execution_time
@@ -20,3 +24,5 @@ def test_func():
 
 if __name__ == "__main__":
     test_func()
+    test_b = timer(binary_search)
+    test_b([1,2,3,4], 0, 3, 3)
