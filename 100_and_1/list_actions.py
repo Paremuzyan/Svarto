@@ -1,3 +1,6 @@
+from is_even_odd import is_odd, is_even
+
+
 def sum_of(numbers_list):
     result = 0
     for n in numbers_list: result += n
@@ -79,12 +82,110 @@ def reverse_of(numbers_list):
     return numbers_list[::-1]
 
 
+def evens_sum(numbers_list):
+    result = 0
+    for number in numbers_list:
+        if is_even(number):
+            result += number
+    return result
+
+
+def odds_sum(numbers_list):
+    result = 0
+    for number in numbers_list:
+        if is_odd(number):
+            result += number
+    return result
+
+
+def average_of(numbers_list):
+    average = sum_of(numbers_list) / len(numbers_list)
+    return average
+
+
+def without_duplicates(numbers_list):
+    # return set(numbers_list)
+    only_uniqes = []
+    for element in numbers_list:
+        if element in only_uniqes:
+            continue
+        else:
+            only_uniqes.append(element)
+    return only_uniqes
+
+
+def second_smallest_in(numbers_list):
+    smallest_1 = smallest_in(numbers_list)
+    numbers_list.remove(smallest_1)
+    smallest_2 = smallest_in(numbers_list)
+    return smallest_2
+
+
+def second_largest_in(numbers_list):
+    largest_1 = largest_in(numbers_list)
+    numbers_list.remove(largest_1)
+    largest_2 = largest_in(numbers_list)
+    return largest_2
+
+
+def median_of(sorted_list):
+    length = len(sorted_list)
+    mid = length // 2
+    if is_odd(length):
+        return sorted_list[mid]
+
+    return (sorted_list[mid] + sorted_list[mid - 1]) / 2
+
+
+def find_key_by_value(dictionary, value):
+    for key in dictionary:
+        if dictionary[key] == value:
+            return key
+
+
+def mode_of(numbers_list):
+    frequency = {}
+    for n in numbers_list:
+        if n in frequency:
+            frequency[n] += 1
+        else:
+            frequency[n] = 1
+    max_count = largest_in(list(frequency.values()))
+    mode = find_key_by_value(frequency, max_count)
+    return mode
+
+
+def n_list_to_bin_str(numbers_list):
+    binary_str = ''.join(format(x, '08b') for x in numbers_list)
+    return binary_str
+
+
+def bin_str_to_n_list(binary_str):
+    chunks = [binary_str[i:i + 8] for i in range(0, len(binary_str), 8)]
+    numbers_list = []
+    for chunk in chunks:
+        for n in chunk:
+            numbers_list.append(int(n))
+    return numbers_list
+
+
 if __name__ == "__main__":
     numbers = [8, 0, 41, 2, 1]
-    print(f"sum -->  {sum_of(numbers)}")
-    print(f"product -->  {product_of(numbers)}")
-    print(f"largest element -->  {largest_in(numbers)}")
-    print(f"smallest element -->  {smallest_in(numbers)}")
-    print(f"ascending order --> {ascending_order(numbers)}")
-    print(f"descending order --> {merge_sort_descending_order(numbers)}")
-    print(f"revers of {numbers}  --> {reverse_of(numbers)}")
+    # print(f"sum -->  {sum_of(numbers)}")
+    # print(f"product -->  {product_of(numbers)}")
+    # print(f"largest element -->  {largest_in(numbers)}")
+    # print(f"smallest element -->  {smallest_in(numbers)}")
+    # print(f"ascending order --> {ascending_order(numbers)}")
+    # print(f"descending order --> {merge_sort_descending_order(numbers)}")
+    # print(f"revers of {numbers}  --> {reverse_of(numbers)}")
+    # print(evens_sum(numbers))
+    # print(odds_sum(numbers))
+    # print(average_of(numbers))
+    # print(without_duplicates(numbers))
+    # print(second_smallest_in(numbers))
+    # print(second_largest_in(numbers))
+    # print(median_of([1,2,3,4,5]))
+    # print(mode_of([1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5]))
+    print(n_list_to_bin_str([1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5]))
+    print(bin_str_to_n_list([1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5]))
+
