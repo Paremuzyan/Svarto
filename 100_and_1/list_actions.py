@@ -1,3 +1,5 @@
+import random
+import math
 from is_even_odd import is_odd, is_even
 
 
@@ -144,8 +146,9 @@ def find_key_by_value(dictionary, value):
 
 
 def mode_of(numbers_list):
+    sorted_list = ascending_order(numbers_list)
     frequency = {}
-    for n in numbers_list:
+    for n in sorted_list:
         if n in frequency:
             frequency[n] += 1
         else:
@@ -169,6 +172,45 @@ def bin_str_to_n_list(binary_str):
     return numbers_list
 
 
+def variance_for(numbers_list):
+    average = average_of(numbers_list)
+    length = len(numbers_list)
+    variance = sum((x - average) ** 2 for x in numbers) / (length - 1)
+    return variance
+
+
+def standard_deviation_for(numbers_list):
+    variance = variance_for(numbers_list)
+    s_d = math.sqrt(variance)
+    return s_d
+
+
+def natural_numbers(number):
+    result = []
+    for i in range(1, number + 1):
+        result.append(i)
+    return result
+
+
+def sum_square_of_natural_numbers(n):
+    naturals = natural_numbers(n)
+    squares_sum = sum(list(map(lambda x: x**2, naturals)))
+    return squares_sum
+
+
+def sum_cube_of_natural_numbers(n):
+    naturals = natural_numbers(n)
+    squares_sum = sum(list(map(lambda x: x**3, naturals)))
+    return squares_sum
+
+
+def random_numbers():
+    numbers = []
+    while len(numbers) < 10:
+        numbers.append(random.randint(1, 100))
+    return numbers
+
+
 if __name__ == "__main__":
     numbers = [8, 0, 41, 2, 1]
     # print(f"sum -->  {sum_of(numbers)}")
@@ -186,6 +228,10 @@ if __name__ == "__main__":
     # print(second_largest_in(numbers))
     # print(median_of([1,2,3,4,5]))
     # print(mode_of([1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5]))
-    print(n_list_to_bin_str([1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5]))
-    print(bin_str_to_n_list([1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5]))
+    # print(n_list_to_bin_str([1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5]))
+    # print(bin_str_to_n_list([1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5]))
+    # print(standard_deviation_for(numbers))
+    # print(sum_cube_of_natural_numbers(10))
+    print(random_numbers())
 
+    

@@ -47,6 +47,17 @@ def revers(dictionary):
     return sorted_dict_by_key(dictionary, sorted_keys)
 
 
+def squares_of(dictionary):
+    new_dict = {key: dictionary[key] ** 2 for key in dictionary}
+    return new_dict
+
+
+def ascii_of_alphabet():
+    alphabet = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
+    result = {letter: ord(letter) for letter in alphabet}
+    return result
+
+
 if __name__ == "__main__":
     numbers_dict = {'3': 3, "2": 2, "4": 4, "1": 1}
     # print(sum_of(numbers_dict.values()))
@@ -57,6 +68,7 @@ if __name__ == "__main__":
     # print(keys_descending_order(numbers_dict))
     # print(values_ascending_order(numbers_dict))
     # print(values_descending_order(numbers_dict))
-    print(numbers_dict)
-    print(revers(numbers_dict))
-
+    # print(numbers_dict)
+    # print(revers(numbers_dict))
+    # print(squares_of(numbers_dict))
+    print(ascii_of_alphabet())
