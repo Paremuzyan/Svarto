@@ -180,27 +180,164 @@ class MyString:
                     return False
         return True
 
+    def isupper(self):
+        for letter in self.__string:
+            if ord(letter) not in range(65, 91):
+                return False
+        return True
+
+    def join(self, iterable):
+        result = ""
+        try:
+            for iter in iterable:
+                result += iter + self.__string
+            return result
+        except:
+            return f"{type(iterable)} is not iterable "
+
+    def ljust(self, length, character=" "):
+        return self.__string + length * character
+
+    def lower(self):
+        result = ''
+        for letter in self.__string:
+            if ord(letter) in range(65, 91):
+                result += chr(ord(letter) + 32)
+            else:
+                result += letter
+        return result
+
+    def lstrip(self, character=None):
+        if character is None:
+            character = ' \t\n'
+        index = 0
+        while index < self.__length and self.__string[index] in character:
+            index += 1
+        return self.__string[index:]
+
+    def partition(self, value):
+        result = ['', '', '']
+        index = 0
+        while index < self.__length:
+            end_point = index + len(value)
+            if self.__string[index: end_point] == value:
+                result[0] = self.__string[: index]
+                result[1] = self.__string[index: end_point]
+                result[2] = self.__string[end_point:]
+                break
+            index += 1
+        else:
+            result[0] = self.__string
+        return result
+
+    def replace(self, old, new, count=None):
+        result = ''
+        index = 0
+        replaced_count = 0
+        chank = index + len(old)
+        while index < self.__length:
+            if count:
+                if replaced_count < count:
+                    if self.__string[index: index + chank] == old:
+                        result += new
+                        replaced_count += 1
+                    else:
+                        result += self.__string[index: index + chank]
+                    index += chank
+                else:
+                    result += self.__string[index:]
+                    break
+            else:
+                if self.__string[index: index + chank] == old:
+                    result += new
+                else:
+                    result += self.__string[index: index + chank]
+                index += chank
+        return result
+
+    def rfind(self, value, start=0, end=None):
+        if not end:
+            end = self.__length
+        index = -1
+        for i in range(start, end):
+            if self.__string[i:i + len(value)] == value:
+                index = i
+        return index
+
+    def rstrip(self, character=None):
+        if character is None:
+            character = ' \t\n'
+        index = self.__length // 2
+        while index < self.__length and not self.__string[index] in character:
+            index += 1
+        return self.__string[: index]
+
+    def split(self, separator=" ", maxsplit=None):
+        result = []
+        index = 0
+        start = 0
+        if maxsplit:
+            splited_count = 0
+            while index < self.__length and splited_count < maxsplit:
+                end = index + len(separator)
+                if self.__string[index: end] == separator:
+                    result.append(self.__string[start: index])
+                    start = end
+                    splited_count += 1
+                index += 1
+        else:
+            while index < self.__length:
+                end = index + len(separator)
+                if self.__string[index: end] == separator:
+                    result.append(self.__string[start: index])
+                    start = end
+                index += 1
+        return result
+
+    def splitlines(self, keeplinebreaks=False):
+        result = []
+        linebreaks = r"\\n\t\r\b\f\x16"
+        index = 0
+        start = 0
+        end = 0
+        while index < self.__length:
+            if repr(self.__string[index: index + 1]) in linebreaks:
+                if keeplinebreaks:
+                    end = index + 1
+                    index += 1
+                else:
+                    end = index
+                result.append(self.__string[start: end])
+                start = end
+            index += 1
+        print('------', self.__string)
+        result.append(self.__string[end:])
+        return result
 
 
+if __name__ == "__main__":
+    my_string = MyString('Asdh aghj\n aghj \n**** ')
+    # print(my_string.capitalize())
+    # print(my_string.casefold())
+    # print(my_string.center(9, '*'))
+    # print(my_string.count('mY', 5))
+    # print(my_string.endswith('Object', 0, 8))
+    # print(my_string.expandtabs(2))
+    # print(my_string.find("aghj"))
+    # print(my_string.format('ffffff', 'iiiiiii'))
+    # print(my_string.index(" "))
+    # print(my_string.isalnum())
+    # print(my_string.isalpha())
+    # print(my_string.isdecimal())
+    # print(my_string.islower())
+    # print(my_string.isprintable())
+    # print(my_string.istitle())
+    # print(my_string.lstrip('A'))
+    # print(my_string.partition('ghjdfg'))
+    # print(my_string.replace('a', '*'))
+    # print(my_string.rfind('aghj'))
+    # print(my_string.rstrip('*'))
+    # print(my_string.split())
+    print(my_string.splitlines())
 
-# print(ord('a'))
-# print(ord('z'))
-# print(ord('A'))
-# print(ord('Z'))
 
-my_string = MyString('Asdh ghj ghj')
-# print(my_string.capitalize())
-# print(my_string.casefold())
-# print(my_string.center(9, '*'))
-# print(my_string.count('mY', 5))
-# print(my_string.endswith('Object', 0, 8))
-# print(my_string.expandtabs(2))
-# print(my_string.find(" "))
-# print(my_string.format('ffffff', 'iiiiiii'))
-# print(my_string.index(" "))
-# print(my_string.isalnum())
-# print(my_string.isalpha())
-# print(my_string.isdecimal())
-# print(my_string.islower())
-# print(my_string.isprintable())
-print(my_string.istitle())
