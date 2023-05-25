@@ -1,13 +1,18 @@
 class Piece:
 
-    def __int__(self, color, position):
+    def __init__(self, color, position, image):
         self.__color = color
+        self.__image = image
+        self.set_initial_position(position)
+
+    def get_position(self):
+        return self.__position
 
     def move_to(self, row, col):
         self.__position = (row, col)
 
-    def set_position(self, position):
-        # check by type and set possition
+    def set_initial_position(self, position):
+        # check by type and set position
         self.__position = position
 
 class Cell:
@@ -56,6 +61,90 @@ class Chessboard:
             print()
         print(' ', ' '.join('abcdefgh'))
 
+class Player:
+    def __init__(self):
+        self.pieces_count = 16
+        self.__all_pieces = []
+
+    def get_all_pieces(self):
+        return self.__all_pieces
+
+    def remove_piece(self, piece):
+        self.__all_pieces.remove(piece)
+
+
+# զինվոր
+class Pawn(Piece):
+    def __init__(self, color, position, image):
+        super.__init__(color, position, image)
+
+    def set_position(self, row, col):
+        self.__position = (row, col)
+
+    def move_to(self, row, col):
+        print(f'{self.color} Pawn moving to {row, col}')
+
+
+# նավակ
+class Rook(Piece):
+    def __init__(self, color, position, image):
+        super.__init__(color, position, image)
+
+    def set_position(self, row, col):
+        self.__position = (row, col)
+
+    def move_to(self, row, col):
+        print(f'{self.color} Pawn moving to {row, col}')
+
+
+# ձի
+class Knight(Piece):
+    def __init__(self, color, position, image):
+        super.__init__(color, position, image)
+
+    def set_position(self, row, col):
+        self.__position = (row, col)
+
+    def move_to(self, row, col):
+        print(f'{self.color} Pawn moving to {row, col}')
+
+# փիղ
+class Bishop(Piece):
+    def __init__(self, color, position, image):
+        super.__init__(color, position, image)
+
+    def set_position(self, row, col):
+        self.__position = (row, col)
+
+    def move_to(self, row, col):
+        print(f'{self.color} Pawn moving to {row, col}')
+
+
+class Queen(Piece):
+    def __init__(self, color, position, image):
+        super.__init__(color, position, image)
+
+    def set_position(self, row, col):
+        self.__position = (row, col)
+
+    def move_to(self, row, col):
+        print(f'{self.color} Pawn moving to {row, col}')
+
+
+class King(Piece):
+    def __init__(self, color, position, image):
+        super.__init__(color, position, image)
+
+    def set_position(self, row, col):
+        self.__position = (row, col)
+
+    def move_to(self, row, col):
+        print(f'{self.color} Pawn moving to {row, col}')
+
+
+def main():
+    pass
+    
 
 chess_board = Chessboard()
 chess_board.create()
