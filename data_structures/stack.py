@@ -9,7 +9,9 @@ class Stack:
         self.stack.append(element)
 
     def pop_item(self):
-        return self.stack.pop()
+        popped_elemet = self.stack[-1]
+        del self.stack[-1]
+        return popped_elemet
 
     def top(self):
         return self.stack[0]
