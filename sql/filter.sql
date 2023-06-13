@@ -1,0 +1,1 @@
+SELECT * FROM customers WHERE balance > 100;
